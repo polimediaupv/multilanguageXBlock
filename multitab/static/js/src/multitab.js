@@ -27,8 +27,8 @@ function MultiTabXBlock(runtime, element) {
         });
    });
 
-   $(element).find('.add-button').on('click', function () {
 
+   $( document ).on( "click", '.add-button', function() {
         newtab="";
         orderbutons="";
         if ($(this).parent().parent().next().size()==0 && $(this).parent().parent().prev().size()==0)
@@ -65,8 +65,7 @@ function MultiTabXBlock(runtime, element) {
    );
 
 
-
-    $(element).find('.del-button').on('click', function() {
+    $( document ).on( "click", '.del-button', function() {
         if ($(this).parent().parent().next().size()==0 && $(this).parent().parent().prev().size()==0)
         {
             /*only one tab we clear text*/
@@ -96,7 +95,7 @@ function MultiTabXBlock(runtime, element) {
 
     });
 
-    $(element).find('.up-button').on('click', function() {
+    $( document ).on( "click", '.up-button', function() {
         tabname =    $(this).parent().parent().children().children("input[name='tabname\\[\\]']").val();
         tabcontent = $(this).parent().parent().children().children("textarea[name='tabcontent\\[\\]']").val();
         $(this).parent().parent().children().children("input[name='tabname\\[\\]']").val($(this).parent().parent().prev().children().children("input[name='tabname\\[\\]']").val());
@@ -105,8 +104,7 @@ function MultiTabXBlock(runtime, element) {
         $(this).parent().parent().prev().children().children("textarea[name='tabcontent\\[\\]']").val(tabcontent);
     });
 
-
-    $(element).find('.down-button').on('click', function() {
+    $( document ).on( "click", '.down-button', function() {
         tabname =    $(this).parent().parent().children().children("input[name='tabname\\[\\]']").val();
         tabcontent = $(this).parent().parent().children().children("textarea[name='tabcontent\\[\\]']").val();
         $(this).parent().parent().children().children("input[name='tabname\\[\\]']").val($(this).parent().parent().next().children().children("input[name='tabname\\[\\]']").val());
