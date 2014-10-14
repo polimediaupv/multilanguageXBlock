@@ -31,6 +31,10 @@ class MultiTabXBlock(XBlock):
                   scope=Scope.content,
                   help="Serialized tabs")
 
+
+
+
+
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
@@ -96,7 +100,7 @@ class MultiTabXBlock(XBlock):
         frag = Fragment(html.format(self=self,dynamictabs=dynamictabs))
         frag.add_css(self.resource_string("static/css/multitab.css"))
         frag.add_javascript(self.resource_string("static/js/src/multitab.js"))
-        frag.add_javascript(self.resource_string("static/js/src/nicEdit.js"))
+        #frag.add_javascript(self.resource_string("static/js/src/nicEdit.js"))
         frag.initialize_js('MultiTabXBlock')
         return frag
 
