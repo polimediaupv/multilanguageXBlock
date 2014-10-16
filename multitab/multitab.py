@@ -1,7 +1,7 @@
 # coding=utf-8
 __author__ = u"Leonardo Salom Muñoz"
 __credits__ = u"Leonardo Salom Muñoz"
-__version__ = u"0.0.4-SNAPSHOT"
+__version__ = u"0.0.5-SNAPSHOT"
 __maintainer__ = u"Leonardo Salom Muñoz"
 __email__ = u"leosamu@upv.es"
 __status__ = u"Development"
