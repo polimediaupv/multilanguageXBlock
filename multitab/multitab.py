@@ -25,7 +25,7 @@ class MultiTabXBlock(XBlock):
                           scope=Scope.settings,
                           help="Name of the component in the edxplatform")
 
-
+    # serialized_tabs could be a json?
     serialized_tabs = String(display_name="tabnames",
                   default=u'YouTube^^^<iframe width="100%" height="600" src="//www.youtube.com/embed/sOBAeHEeCUw" frameborder="0" allowfullscreen=""></iframe>---优酷^^^<iframe height="600" width="100%" src="http://player.youku.com/embed/XNzMxMjcxNjQ0" frameborder="0" allowfullscreen=""></iframe>---PoliMedia^^^<iframe height="600" width="100%" src="https://media.upv.es/player/?id=dff41935-6970-2c4f-bc13-b34fd342f644" frameborder="0" allowfullscreen=""></iframe>',
                   scope=Scope.content,
@@ -40,7 +40,6 @@ class MultiTabXBlock(XBlock):
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
-    # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         """
         The primary view of the MultiTabXBlock, shown to students

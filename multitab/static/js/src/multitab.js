@@ -61,6 +61,7 @@ function MultiTabXBlock(runtime, element) {
         newtab = newtab + ' </div></div>';
 
        $(this).parent().parent().after(newtab);
+       return false;
     }
    );
 
@@ -92,6 +93,7 @@ function MultiTabXBlock(runtime, element) {
         {
             $(this).parent().parent().remove();
         }
+        return false;
 
     });
 
@@ -102,6 +104,7 @@ function MultiTabXBlock(runtime, element) {
         $(this).parent().parent().children().children("textarea[name='tabcontent\\[\\]']").val($(this).parent().parent().prev().children().children("textarea[name='tabcontent\\[\\]']").val());
         $(this).parent().parent().prev().children().children("input[name='tabname\\[\\]']").val(tabname);
         $(this).parent().parent().prev().children().children("textarea[name='tabcontent\\[\\]']").val(tabcontent);
+        return false;
     });
 
     $( document ).on( "click", '.down-button', function() {
@@ -111,6 +114,7 @@ function MultiTabXBlock(runtime, element) {
         $(this).parent().parent().children().children("textarea[name='tabcontent\\[\\]']").val($(this).parent().parent().next().children().children("textarea[name='tabcontent\\[\\]']").val());
         $(this).parent().parent().next().children().children("input[name='tabname\\[\\]']").val(tabname);
         $(this).parent().parent().next().children().children("textarea[name='tabcontent\\[\\]']").val(tabcontent);
+        return false;
     });
 
    $(function ($) {
