@@ -28,9 +28,10 @@ function MultiTabXBlock(runtime, element) {
    });
 
 
-   $( document ).on( "click", '.add-button', function() {
+   $( document ).on( "click", '.add-button', function(e) {
         newtab="";
         orderbutons="";
+        e.PreventDefault();
         if ($(this).parent().parent().next().size()==0 && $(this).parent().parent().prev().size()==0)
         {
             orderbutons = '<a href="#" class="up-button  roundbuttons">^</a>';
@@ -61,7 +62,6 @@ function MultiTabXBlock(runtime, element) {
         newtab = newtab + ' </div></div>';
 
        $(this).parent().parent().after(newtab);
-       return false;
     }
    );
 
