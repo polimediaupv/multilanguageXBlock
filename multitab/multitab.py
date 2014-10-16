@@ -1,7 +1,7 @@
 # coding=utf-8
 __author__ = u"Leonardo Salom Muñoz"
 __credits__ = u"Leonardo Salom Muñoz"
-__version__ = u"0.0.3-SNAPSHOT"
+__version__ = u"0.0.4-SNAPSHOT"
 __maintainer__ = u"Leonardo Salom Muñoz"
 __email__ = u"leosamu@upv.es"
 __status__ = u"Development"
@@ -45,6 +45,7 @@ class MultiTabXBlock(XBlock):
         The primary view of the MultiTabXBlock, shown to students
         when viewing courses.
         """
+
         tabs=u''
         divs=u''
         tabDict=bson.son.SON((k.strip(), v.strip()) for k,v in
@@ -99,7 +100,6 @@ class MultiTabXBlock(XBlock):
         frag = Fragment(html.format(self=self,dynamictabs=dynamictabs))
         frag.add_css(self.resource_string("static/css/multitab.css"))
         frag.add_javascript(self.resource_string("static/js/src/multitab.js"))
-        #frag.add_javascript(self.resource_string("static/js/src/nicEdit.js"))
         frag.initialize_js('MultiTabXBlock')
         return frag
 

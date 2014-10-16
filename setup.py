@@ -16,7 +16,7 @@ def package_data(pkg, root):
 
 setup(
     name='multitab-xblock',
-    version='0.1',
+    version='0.4',
     description='multitab XBlock',   # TODO: write a better description.
     packages=[
         'multitab',
