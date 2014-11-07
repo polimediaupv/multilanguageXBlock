@@ -51,7 +51,7 @@ class MultiTabXBlock(XBlock):
         tabDict=bson.son.SON((k.strip(), v.strip()) for k,v in
               (item.split('^^^') for item in self.serialized_tabs.split('---')))
         for tab, content in tabDict.iteritems():
-            tabs= tabs + u'<a onclick="showStuff(\'' + unicode(tab) + u'\');" class="classname" name="tab[]">' + unicode(tab) + u'</a>'
+            tabs= tabs + u'<a onclick="showStuff(\'' + unicode(tab) + u'\',this);" class="classname" name="tab[]">' + unicode(tab) + u'</a>'
             if divs == u'':
                 divs = divs + u'<div id="' + unicode(tab) + u'" style="display: block;">' + unicode(content) + u'</div>'
             else:

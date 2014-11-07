@@ -1,14 +1,18 @@
 /**
  * Created by leosamu on 05/09/14.
  */
-function showStuff(id) {
+/* Javascript for MultiTabXBlock. */
 
-        tabnames = $("a[name='tab\\[\\]']").map(function(){return $(this).context.text;}).get();
+    function showStuff(id,element) {
 
-        tabnames.forEach(function(tab) {
-             document.getElementById(tab).style.display = 'none';
-        });
+            console.log("omgomgomg");
+            tabnames = $("a[name='tab\\[\\]']",element.parentNode).map(function(){return $(this).context.text;}).get();
 
-   	    document.getElementById(id).style.display = 'block';
-       return false;
-   }
+            tabnames.forEach(function(tab) {
+                 $("#"+tab,element.parentNode).css({"display":'none'});
+            });
+
+            $("#"+id,element.parentNode).css({"display":'block'});
+           return false;
+       }
+
