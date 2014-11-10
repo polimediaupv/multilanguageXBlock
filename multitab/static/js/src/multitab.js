@@ -29,39 +29,40 @@ function MultiTabXBlock(runtime, element) {
 
 
    $( document ).on( "click", '.add-button', function(e) {
+                console.log("welele");
+
         newtab="";
         orderbutons="";
-        e.PreventDefault();
-        if ($(this).parent().parent().next().size()==0 && $(this).parent().parent().prev().size()==0)
+        /*if ($(this).parent().parent().next().size()==0 && $(this).parent().parent().prev().size()==0)
         {
             orderbutons = '<a href="#" class="up-button  roundbuttons">^</a>';
         }
         else if ($(this).parent().parent().next().size()==0 && $(this).parent().parent().prev().size()!=0)
         {
-            /*when we add an element at the end of the array we need to add a down button to the element that creates this */
             $(this).next().after('<a href="#" class="down-button roundbuttons">v</a>');
             orderbutons = '<a href="#" class="up-button  roundbuttons">^</a>';
         }
         else
         {
             orderbutons = '<a href="#" class="down-button roundbuttons">v</a><a href="#" class="up-button roundbuttons">^</a>';
-        }
+        }*/
 
-
-        newtab = newtab + '<div>';
+        newtab = newtab + '<li>';
         newtab = newtab + '<div class="wrapper-videolist-url videolist-settings-item" >';
         newtab = newtab + '<label class="label setting-label">Tab name</label>';
         newtab = newtab + '<input class="input setting-input edit-display-name" id="tab0" value="" name="tabname[]">';
         newtab = newtab + '<a href="#" class="add-button roundbuttons" >+</a><a href="#" class="del-button roundbuttons">-</a>';
-        newtab = newtab + orderbutons;
+        //newtab = newtab + orderbutons;
         newtab = newtab + '</div>';
         newtab = newtab + '<div class="wrapper-videolist-url videolist-settings-item">';
         newtab = newtab + '<label class="label setting-label">Tab content</label>';
         newtab = newtab + '<textarea class="input setting-input edit-display-name" id="tabcontent0" type="text" style="margin: 2px; width: 372px; height: 135px;" name="tabcontent[]">';
+        newtab = newtab + '';
         newtab = newtab + '</textarea>';
-        newtab = newtab + ' </div></div>';
+        newtab = newtab + ' </div></li>';
 
        $(this).parent().parent().after(newtab);
+       return false;
     }
    );
 
@@ -116,6 +117,9 @@ function MultiTabXBlock(runtime, element) {
         $(this).parent().parent().next().children().children("textarea[name='tabcontent\\[\\]']").val(tabcontent);
         return false;
     });
+
+   $( "#sortable",element ).sortable();
+   $( "#sortable",element ).disableSelection();
 
    $(function ($) {
         /* Here's where you'd do things on page load. */

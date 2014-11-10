@@ -66,35 +66,38 @@ class MultiTabXBlock(XBlock):
 
     def studio_view(self, context=None):   #studio_view
 
-        dynamictabs = u''
+        dynamictabs = u'<ul id="sortable">'
+
         #generate a dictionary with all the tabs that we currently have
         tabDict=bson.son.SON((k.strip(), v.strip()) for k,v in
               (item.split('^^^') for item in self.serialized_tabs.split('---')))
         i=0
 
         for tab, content in tabDict.iteritems():
-
-            if dynamictabs == u'':
+            '''
+            if dynamictabs == u'<ul id="sortable">':
                 orderbutons = u'<a href="#" class="down-button roundbuttons" order=' + unicode(i) + u' >v</a>'
             elif i+1 == len(tabDict):
                 orderbutons = u'<a href="#" class="up-button roundbuttons" order=' + unicode(i) + u' >^</a>'
             else:
                 orderbutons = u'<a href="#" class="down-button roundbuttons" order=' + unicode(i) + u' >v</a><a href="#" class="up-button roundbuttons" order=' + unicode(i) + u' >^</a>'
-
-            dynamictabs = dynamictabs + u'<div id="tab' + unicode(i) + u'" order=' + unicode(i) + u'>'
+            '''
+            dynamictabs = dynamictabs + u'<li id="tab' + unicode(i) + u'" order=' + unicode(i) + u'>'
             dynamictabs = dynamictabs + u'<div class="wrapper-videolist-url videolist-settings-item" >'
             dynamictabs = dynamictabs + u'<label class="label setting-label">Tab name</label>'
             dynamictabs = dynamictabs + u'<input class="input setting-input edit-display-name" id="tab0" value="' + unicode(tab) + u'" type="text" name="tabname[]">'
             dynamictabs = dynamictabs + u'<a href="#" class="add-button roundbuttons" order=' + unicode(i) + u' >+</a><a href="#" class="del-button roundbuttons" order=' + unicode(i) + u' >-</a>'
-            dynamictabs = dynamictabs + orderbutons
+            #dynamictabs = dynamictabs + orderbutons
             dynamictabs = dynamictabs + u'</div>'
             dynamictabs = dynamictabs + u'<div class="wrapper-videolist-url videolist-settings-item">'
             dynamictabs = dynamictabs + u'<label class="label setting-label">Tab content</label>'
             dynamictabs = dynamictabs + u'<textarea class="input setting-input edit-display-name" id="tabcontent0" type="text" style="margin: 2px; width: 372px; height: 135px;" name="tabcontent[]">'
             dynamictabs = dynamictabs + unicode(content)
             dynamictabs = dynamictabs + u'</textarea>'
-            dynamictabs = dynamictabs + u' </div></div>'
+            dynamictabs = dynamictabs + u' </div></li>'
             i=i+1
+
+        dynamictabs = dynamictabs + u'</ul">'
 
         html = self.resource_string("static/html/multitab_edit.html")
         frag = Fragment(html.format(self=self,dynamictabs=dynamictabs))
@@ -114,7 +117,7 @@ class MultiTabXBlock(XBlock):
         tabcontent = data['tabcontent']
         #clean previous content
         self.serialized_tabs= u''
-
+        #revisar luego 'if (unicode(tabnames[i])!='' && unicode(tabcontent[i])!=''):
         for i  in range(0, len(tabnames)):
             self.serialized_tabs = self.serialized_tabs + unicode(tabnames[i]) + u'^^^' + unicode(tabcontent[i]) + u'---'
 

@@ -5,7 +5,6 @@
 
     function showStuff(id,element) {
 
-            console.log("omgomgomg");
             tabnames = $("a[name='tab\\[\\]']",element.parentNode).map(function(){return $(this).context.text;}).get();
 
             tabnames.forEach(function(tab) {
@@ -15,4 +14,5 @@
             $("#"+id,element.parentNode).css({"display":'block'});
            return false;
        }
+
 
