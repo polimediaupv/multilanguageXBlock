@@ -9,7 +9,6 @@ import pkg_resources
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String
-from user_api.models import UserPreference
 from django.utils import translation
 from django.conf import settings
 from dark_lang.models import DarkLangConfig

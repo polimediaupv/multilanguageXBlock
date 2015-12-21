@@ -16,7 +16,7 @@ def package_data(pkg, root):
 
 setup(
     name='multilanguage-xblock',
-    version='0.5',
+    version='0.6',
     description='multilanguage XBlock',   # TODO: write a better description.
     packages=[
         'multilanguage',
