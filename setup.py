@@ -1,4 +1,4 @@
-"""Setup for multitab XBlock."""
+"""Setup for multilanguage XBlock."""
 
 import os
 from setuptools import setup
@@ -15,19 +15,19 @@ def package_data(pkg, root):
 
 
 setup(
-    name='multitab-xblock',
+    name='multilanguage-xblock',
     version='0.5',
-    description='multitab XBlock',   # TODO: write a better description.
+    description='multilanguage XBlock',   # TODO: write a better description.
     packages=[
-        'multitab',
+        'multilanguage',
     ],
     install_requires=[
         'XBlock',
     ],
     entry_points={
         'xblock.v1': [
-            'multitab = multitab:MultiTabXBlock',
+            'multilanguage = multilanguage:MultiLanguageXBlock',
         ]
     },
-    package_data=package_data("multitab", "static"),
+    package_data=package_data("multilanguage", "static"),
 )
