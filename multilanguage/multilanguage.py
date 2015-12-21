@@ -1,8 +1,8 @@
 # coding=utf-8
-__author__ = u"Leonardo Salom Muñoz"
-__credits__ = u"Leonardo Salom Muñoz"
+__author__ = u"Leonardo Salom"
+__credits__ = u"Leonardo Salom"
 __version__ = u"0.0.5-SNAPSHOT"
-__maintainer__ = u"Leonardo Salom Muñoz"
+__maintainer__ = u"Leonardo Salom "
 __email__ = u"leosamu@upv.es"
 __status__ = u"Development"
 import pkg_resources
@@ -30,7 +30,7 @@ class MultiLanguageXBlock(XBlock):
 
     # serialized_tabs could be a json?
     serialized_tabs = String(display_name="tabnames",
-                  default=u'es-es^^^texto en español---en^^^english text',
+                  default=u'es-es^^^texto en castellano---en^^^english text',
                   scope=Scope.content,
                   help="Serialized tabs")
 
@@ -78,28 +78,21 @@ class MultiLanguageXBlock(XBlock):
         i=0
 
         lang_dict =dict(settings.LANGUAGES)
-        print lang_dict[u'es-es']
-        print DarkLangConfig.current().released_languages_list
-        print translation.get_language()
 
         for tab, content in tabDict.iteritems():
             dynamictabs = dynamictabs + u'<li id="tab' + unicode(i) + u'" order=' + unicode(i) + u'>'
             dynamictabs = dynamictabs + u'<div class="wrapper-videolist-url videolist-settings-item" >'
             dynamictabs = dynamictabs + u'<label class="label setting-label">Language</label>'
-
-            #change this for a language selector from dark_lang languages
-            #dynamictabs = dynamictabs + u'<input class="input setting-input edit-display-name" id="tab0" value="' + unicode(tab) + u'" type="text" name="tabname[]">'
             dynamictabs = dynamictabs + u'<select class="input setting-input edit-display-name" id="tab0" name="tabname[]">'
             for lang in DarkLangConfig.current().released_languages_list:
                 if lang == unicode(tab):
-                    dynamictabs = dynamictabs + u'<option value="' + lang + '" selected>' + lang_dict[lang] + '</option> '
+                    dynamictabs = dynamictabs + u'<option value="' + unicode(lang) + '" selected>' + unicode(lang_dict[lang]) + '</option> '
                 else:
-                    dynamictabs = dynamictabs + u'<option value="' + lang + '">' + lang_dict[lang] + '</option> '
+                    dynamictabs = dynamictabs + u'<option value="' + unicode(lang) + '">' + unicode(lang_dict[lang]) + '</option> '
             dynamictabs = dynamictabs + u'</select>'
 
 
             dynamictabs = dynamictabs + u'<a href="#" class="add-button roundbuttons" order=' + unicode(i) + u' >+</a><a href="#" class="del-button roundbuttons" order=' + unicode(i) + u' >-</a>'
-            #dynamictabs = dynamictabs + orderbutons
             dynamictabs = dynamictabs + u'</div>'
             dynamictabs = dynamictabs + u'<div class="wrapper-videolist-url videolist-settings-item">'
             dynamictabs = dynamictabs + u'<label class="label setting-label">Content</label>'

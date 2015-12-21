@@ -37,7 +37,7 @@ function MultiLanguageXBlock(runtime, element) {
         orderbutons="";
         newtab = newtab + '<li>';
         newtab = newtab + '<div class="wrapper-videolist-url videolist-settings-item" >';
-        newtab = newtab + '<label class="label setting-label">Tab name</label>';
+        newtab = newtab + '<label class="label setting-label">Language</label>';
         newtab = newtab + '<select class="input setting-input edit-display-name" id="tab0" name="tabname[]">';
         newtab = newtab + $($("select.input.edit-display-name")[0]).html();
         newtab = newtab + '</select>';
@@ -45,7 +45,7 @@ function MultiLanguageXBlock(runtime, element) {
         //newtab = newtab + orderbutons;
         newtab = newtab + '</div>';
         newtab = newtab + '<div class="wrapper-videolist-url videolist-settings-item">';
-        newtab = newtab + '<label class="label setting-label">Tab content</label>';
+        newtab = newtab + '<label class="label setting-label">Content</label>';
         newtab = newtab + '<textarea class="input setting-input edit-display-name" id="tabcontent0" type="text" style="margin: 2px; width: 372px; height: 135px;" name="tabcontent[]">';
         newtab = newtab + '';
         newtab = newtab + '</textarea>';
