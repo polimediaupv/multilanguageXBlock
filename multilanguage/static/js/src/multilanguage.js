@@ -4,7 +4,6 @@
 /* Javascript for MultiLanguageXBlock. */
 function MultiLanguageXBlock(runtime, element) {
 
-console.log('agasdga');
 
    $(element).find('.cancel-button').bind('click', function() {
         runtime.notify('cancel', {});
